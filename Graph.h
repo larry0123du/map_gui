@@ -33,8 +33,7 @@ public:
 
 	bool discovered;
 	bool tbd;
-	/*for gl*/
-	bool draw;
+	
 
 	//friend class Edge;
 	//friend class Graph;
@@ -44,7 +43,7 @@ public:
 		f_cost = numeric_limits<double>::max();
 		discovered = false;
 		tbd = false;
-		draw = false;
+		//draw = false;
 	};
 
 };
@@ -53,11 +52,16 @@ class Edge {
 public:
 	int edgeID;
 	double weight;
+	/*for gl*/
+	bool draw;
+
 	vector<Vertex *> vertices;
 
 	//friend class Vertex;
 	//friend class Graph;
-	Edge(int id, double w) : edgeID(id), weight(w) {};
+	Edge(int id, double w) : edgeID(id), weight(w) {
+		draw = false;
+	};
 };
 
 class Graph {
